@@ -1,0 +1,134 @@
+﻿body {
+    /*color:white;
+    background: rgb(16,61,156);
+    background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%);*/
+}
+
+/*.shadow {*/
+/*box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;*/
+/*background-image: linear-gradient( 225deg,#d61b3c, #13294b);
+}*/
+
+hr {
+    border-top: 3px solid red;
+}
+
+.scroll {
+    overflow: auto;
+}
+
+.lbl {
+    float: right;
+    color: white;
+    font-size: x-large;
+    margin-right: 20px;
+    font-weight:500;
+}
+
+.btn {
+    float: right;
+    font-size: large;
+    margin-right: 20px;
+}
+
+.hight {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.span1 {
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+.footer {
+    background-color: ButtonHighlight;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.book {
+    padding-left: 60px;
+}
+
+.header {
+    color: white;
+    text-align: left;
+    background-image: linear-gradient( 225deg,#d61b3c, #13294b);
+}
+
+ul {
+    list-style-type: none;
+    height: auto;
+    overflow: hidden;
+    background-image: linear-gradient( 225deg,#d61b3c, #13294b);
+    text-align: center;
+}
+
+li {
+    float: left;
+}
+
+    li a {
+        font-weight: 500;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-family: sans-serif;
+    }
+
+        li a:hover {
+            background-color: lightblue;
+        }
+
+.box-shadow {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-family: sans-serif;
+    border-radius: 6px;
+    box-shadow: 2px 2px 20px 2px gray;
+}
+
+.addbtn {
+    float: right;
+    background-color: lightblue;
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .addbtn:hover {
+        background-color: RoyalBlue;
+    }
+
+.deletebtn {
+    color: red;
+    cursor: pointer;
+}
+
+    .deletebtn:hover{
+        background-color:red;
+    }
+
+.editbtn {
+    color: green;
+    cursor: pointer;
+}
+
+    .editbtn:hover {
+        background-color: green;
+    }
+
+/* * {
+        outline: solid 1px red;
+}*/

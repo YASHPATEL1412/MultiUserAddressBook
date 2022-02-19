@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MultiUserAddressBook.master.cs" Inherits="Content_MultiUserAddressBook" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+   <%-- <script>
+        var docWidth = document.documentElement.offsetWidth;
+
+        [].forEach.call(
+            document.querySelectorAll('*'),
+            function (el) {
+                if (el.offsetWidth > docWidth) {
+                    console.log(el);
+                }
+            }
+        );            
+    </script>--%>
+
+    <%--Icone Css and Js--%>
+    <script src="js/all.js"></script>
+    <script src="js/all.min.js"></script>
+    <link href="css/all.css" rel="stylesheet" />
+    <link href="css/all.min.css" rel="stylesheet" />
+    <link href="css/EditBtn.css" rel="stylesheet" />
+    <%--Icone Css and Js--%>
+
+    <link href="css/bootstrap-grid.css" rel="stylesheet" />
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <asp:ContentPlaceHolder id="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+   <form id="form1" runat="server">
+        <div class="nav-justified">
+            <div class="header">                
+                <text class="book" style='font-size:40px'><i class='far fa-address-book'></i> Address Book</text>
+                <asp:Label runat="server" ID="lblUserName" CssClass="lbl"/>
+                <ul style="font-size: large; vertical-align: middle;">
+                    <li>
+                        <asp:HyperLink runat="server" ID="hlContact" Text="Contact" NavigateUrl="~/AdminPanel/Contact/ContactList.aspx" /></li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="hlContactCategory" Text="Contact Category" NavigateUrl="~/AdminPanel/ContactCategory/ContactCategoryList.aspx" /></li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="hlCity" Text="City" NavigateUrl="~/AdminPanel/City/CityList.aspx" /></li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="hlState" Text="State" NavigateUrl="~/AdminPanel/State/StateList.aspx" /></li>
+                    <li>
+                        <asp:HyperLink runat="server" ID="hlCountry" Text="Country" NavigateUrl="~/AdminPanel/Country/CountryList.aspx" /></li>
+                <asp:Button runat="server" ID="btnSignOut" Text="Sign Out" CssClass="btn btn-dark" OnClick="btnSignOut_Click" />
+                </ul>
+            </div>                
+        </div>
+        <div>
+            <div class="box-shadow">
+                <div class="col-md-12">
+                    <asp:ContentPlaceHolder ID="cphMainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <br />
+            <div class="col-md-12 text-center">
+                Yash Chhatrala | 190540107027 | E.190540107027@darshan.ac.in
+            </div>
+            <br />
+        </div>
+    </form>
+</body>
+</html>

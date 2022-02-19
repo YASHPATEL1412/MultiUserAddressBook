@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MultiUserAddressBook", ".", "{F93350BF-13E9-4E2E-BE63-992B5189B45E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_8445"
+		Debug.AspNetCompiler.PhysicalPath = "..\MultiUserAddressBook\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8445\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_8445"
+		Release.AspNetCompiler.PhysicalPath = "..\MultiUserAddressBook\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_8445\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8445"
+		SlnRelativePath = "..\MultiUserAddressBook\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F93350BF-13E9-4E2E-BE63-992B5189B45E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93350BF-13E9-4E2E-BE63-992B5189B45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DE8AF79-3445-4137-A5E0-F6A24C489CF6}
+	EndGlobalSection
+EndGlobal
