@@ -18,12 +18,16 @@ hr {
     overflow: auto;
 }
 
+.required{
+    color:red;
+}
+
 .lbl {
     float: right;
     color: white;
     font-size: x-large;
     margin-right: 20px;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .btn {
@@ -129,6 +133,6 @@ li {
         background-color: green;
     }
 
-/* * {
+/** {
         outline: solid 1px red;
 }*/

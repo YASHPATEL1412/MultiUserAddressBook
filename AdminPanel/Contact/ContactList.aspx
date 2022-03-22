@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col-md-12" style="text-align: center">
-            <asp:Label runat="server" ID="lblMessage" EnableViewState="False" Font-Bold="True" Font-Size="Large" ForeColor="Red"/>
+            <asp:Label runat="server" ID="lblMessage" EnableViewState="False" Font-Bold="True" Font-Size="Large" ForeColor="Red" />
         </div>
     </div>
     <div class="scroll">
@@ -19,31 +19,41 @@
             <Columns>
                 <asp:TemplateField HeaderText="Edit">
                     <ItemTemplate>
-                        <asp:HyperLink runat="server" ID="hlEdit" CssClass="btn btn-outline-success btn-sm editbtn" NavigateUrl='<%# "~/AdminPanel/Contact/ContactAddEdit.aspx?ContactID=" + Eval("ContactID").ToString().Trim() %>' ><i class="fa fa-edit"></i> Edit </asp:HyperLink>
+                        <asp:HyperLink runat="server" ID="hlEdit" CssClass="btn btn-outline-success btn-sm editbtn" NavigateUrl='<%# "~/AdminPanel/Contact/ContactAddEdit.aspx?ContactID=" + Eval("ContactID").ToString().Trim() %>'><i class="fa fa-edit"></i> Edit </asp:HyperLink>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
-                        <asp:LinkButton runat="server" ID="btnDelete" Text="Delete" CssClass="btn btn-outline-danger btn-sm deletebtn" CommandName="DeleteRecord" CommandArgument='<%# Eval("ContactID").ToString().Trim() %>' > <i class="fa fa-trash"></i> Delete </asp:LinkButton>
+                        <asp:LinkButton runat="server" ID="btnDelete" CssClass="btn btn-outline-danger btn-sm deletebtn" CommandName="DeleteRecord" CommandArgument='<%# Eval("ContactID").ToString().Trim() %>'> <i class="fa fa-trash"></i> Delete </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
-               <%-- <asp:BoundField DataField="ContactID" HeaderText="ID" />--%>
+
+                <asp:TemplateField HeaderText="Contact Photo">
+                    <ItemTemplate>
+                        <asp:Image runat="server" ID="imgImage" CssClass="img-fluid me-4" AlternateText="Image dosen't upload!"  ImageUrl='<%# Eval("ContactPhotoPath") %>' />
+                        <asp:LinkButton runat="server" ID="btnDeleteImg" CssClass="btn btn-outline-danger btn-sm deletebtn" CommandName="DeleteImage" CommandArgument='<%# Eval("ContactID").ToString() %>'> <i class="fa fa-trash"></i></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="FileType" HeaderText="File Type" />
+                <asp:BoundField DataField="FileSize" HeaderText="File Size" />
+
+                <%-- <asp:BoundField DataField="ContactID" HeaderText="ID" />--%>
                 <asp:BoundField DataField="CountryName" HeaderText="Country Name" />
                 <asp:BoundField DataField="StateName" HeaderText="State Name" />
                 <asp:BoundField DataField="CityName" HeaderText="City Name" />
                 <asp:BoundField DataField="ContactCategoryName" HeaderText="ContactCategory Name" />
                 <asp:BoundField DataField="ContactName" HeaderText="Contact Name" />
                 <asp:BoundField DataField="ContactNo" HeaderText="Contact No" />
-                <asp:BoundField DataField="WhatsappNo" HeaderText="Whatsapp No" />
+                <%--<asp:BoundField DataField="WhatsappNo" HeaderText="Whatsapp No" />--%>
                 <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" />
                 <asp:BoundField DataField="Email" HeaderText="Email" />
                 <asp:BoundField DataField="Age" HeaderText="Age" />
                 <asp:BoundField DataField="Address" HeaderText="Address" />
-                <asp:BoundField DataField="BloodGroup" HeaderText="BloodGroup" />
-                <asp:BoundField DataField="FacebookID" HeaderText="Facebook ID" />
+                <%--<asp:BoundField DataField="BloodGroup" HeaderText="BloodGroup" />--%>
+                <%--<asp:BoundField DataField="FacebookID" HeaderText="Facebook ID" />--%>
                 <asp:BoundField DataField="LinkedInID" HeaderText="LinkedInID" />
                 <asp:BoundField DataField="CreationDate" HeaderText="Creation Date" />
-                <asp:BoundField DataField="ModificationDate" HeaderText="Modification Date" />
+                <%--<asp:BoundField DataField="ModificationDate" HeaderText="Modification Date" />--%>
             </Columns>
         </asp:GridView>
     </div>

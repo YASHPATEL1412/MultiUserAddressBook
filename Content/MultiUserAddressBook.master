@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 
-   <%-- <script>
+    <%--<script>
         var docWidth = document.documentElement.offsetWidth;
 
         [].forEach.call(
@@ -46,7 +46,7 @@
         <div class="nav-justified">
             <div class="header">                
                 <text class="book" style='font-size:40px'><i class='far fa-address-book'></i> Address Book</text>
-                <asp:Label runat="server" ID="lblUserName" CssClass="lbl"/>
+                <asp:Label runat="server" ID="lblUserName" CssClass="lbl" />
                 <ul style="font-size: large; vertical-align: middle;">
                     <li>
                         <asp:HyperLink runat="server" ID="hlContact" Text="Contact" NavigateUrl="~/AdminPanel/Contact/ContactList.aspx" /></li>

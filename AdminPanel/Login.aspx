@@ -37,9 +37,13 @@ background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%
 
                 <!-- Login Form -->--%>
                 <asp:TextBox runat="server" ID="txtUserNameLogin" CssClass="fadeIn first" placeholder="User Name"></asp:TextBox>
+                <br />                                
+                <asp:RequiredFieldValidator ID="rfvEnterUserName" runat="server" ControlToValidate="txtUserNameLogin" Display="Dynamic" ErrorMessage="Enter User Name" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>                
                 <asp:TextBox runat="server" ID="txtPasswordLogin" CssClass="fadeIn second" placeholder="Password"></asp:TextBox>
+                <br />                                
+                <asp:RequiredFieldValidator ID="rfvPasswordLogin" runat="server" ControlToValidate="txtPasswordLogin" Display="Dynamic" ErrorMessage="Enter Password" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
-                <asp:Button runat="server" ID="btnLogin" Text="Login" class="fadeIn third" OnClick="btnLogin_Click" /><br />
+                <asp:Button runat="server" ID="btnLogin" Text="Sign in" class="fadeIn third" OnClick="btnLogin_Click" /><br />
                 <asp:Label runat="server" ID="lblMessage" EnableViewState="false" />
                 <!-- Remind Passowrd -->
                 <%--<div id="formFooter">
@@ -48,7 +52,7 @@ background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%
 
                 <div id="formFooter">
                     <a>
-                        <h4>Existing User? Login to Address Book </h4>
+                        <h4>Existing User? Sign in to Address Book </h4>
                     </a>
                 </div>
 

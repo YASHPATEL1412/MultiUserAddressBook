@@ -21,8 +21,7 @@
     <script src="~/Content/js/bootstrap.min.js"></script>
 
 </head>
-<body style="background: rgb(16,61,156);
-background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%);">
+<body style="background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%);">
     <form id="form1" runat="server">
         <div class="wrapper fadeInDown">
             <div id="formContent">
@@ -37,12 +36,22 @@ background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%
 
                 <!-- Login Form -->--%>
                 <asp:TextBox runat="server" ID="txtUserNameRegister" CssClass="fadeIn first" placeholder="User Name"></asp:TextBox>
-                <asp:TextBox runat="server" ID="txtPasswordRegister" CssClass="fadeIn second" placeholder="Password"></asp:TextBox>
-                <asp:TextBox runat="server" ID="txtDisplayName" CssClass="fadeIn third" placeholder="DisplayName"></asp:TextBox>
+                <br />                                
+                <asp:RequiredFieldValidator ID="rfvUserNameRegister" runat="server" ControlToValidate="txtUserNameRegister" Display="Dynamic" ErrorMessage="Enter User Name" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:TextBox runat="server" ID="txtPasswordRegister" CssClass="fadeIn second" placeholder="Password"></asp:TextBox>                
+                <br />                                
+                <asp:RequiredFieldValidator ID="rfvPasswordRegister" runat="server" ControlToValidate="txtPasswordRegister" Display="Dynamic" ErrorMessage="Enter Password" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>                
+                <asp:TextBox runat="server" ID="txtDisplayName" CssClass="fadeIn third" placeholder="DisplayName"></asp:TextBox>                
+                <br />                                
+                <asp:RequiredFieldValidator ID="rfvDisplayName" runat="server" ControlToValidate="txtDisplayName" Display="Dynamic" ErrorMessage="Enter DisplayName" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>                                
                 <asp:TextBox runat="server" ID="txtMobileNo" CssClass="fadeIn fourth" placeholder="MobileNo"></asp:TextBox>
+                <br />                                
+                <asp:RequiredFieldValidator ID="rfvMobileNo" runat="server" ControlToValidate="txtMobileNo" Display="Dynamic" ErrorMessage="Enter MobileNo" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>                                                
                 <asp:TextBox runat="server" ID="txtEmail" CssClass="fadeIn five" placeholder="Email"></asp:TextBox>
                 <br />
-                <asp:Button runat="server" ID="btnRegister" Text="Submit" class="fadeIn six" OnClick="btnRegister_Click" /><br />
+                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Enter Email" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>                                                
+                <br />
+                <asp:Button runat="server" ID="btnRegister" Text="Create account" class="fadeIn six" OnClick="btnRegister_Click" /><br />
                 <asp:Label runat="server" ID="lblMessage" EnableViewState="false" />
                 
                 <!-- Remind Passowrd -->
@@ -52,7 +61,7 @@ background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%
 
                 <div id="formFooter">
                     <a>
-                        <h4>New User? Register to Address Book </h4>
+                        <h4>New User? Sign Up to Address Book </h4>
                     </a>
                 </div>
 
