@@ -52,7 +52,7 @@
                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Enter Email" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>                                                
                 <br />
                 <asp:Button runat="server" ID="btnRegister" Text="Create account" class="fadeIn six" OnClick="btnRegister_Click" /><br />
-                <asp:Label runat="server" ID="lblMessage" EnableViewState="false" />
+                <asp:Label runat="server" ID="lblMessage" EnableViewState="False" Font-Bold="True" Font-Size="Large" ForeColor="Red"  />
                 
                 <!-- Remind Passowrd -->
                 <%--<div id="formFooter">
@@ -61,7 +61,7 @@
 
                 <div id="formFooter">
                     <a>
-                        <h4>New User? Sign Up to Address Book </h4>
+                        <h4>New User! Sign Up to Address Book </h4>
                     </a>
                 </div>
 

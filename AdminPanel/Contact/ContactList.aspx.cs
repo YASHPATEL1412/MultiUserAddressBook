@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Drawing;
 using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,6 +16,7 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             FillGridView();
+            lblMessage.Text = "";
         }
     }
     #endregion Load Evant
@@ -46,7 +48,7 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
             //objCmd.CommandType = CommandType.Text;
             //objCmd.CommandType = CommandType.TableDirect;
 
-            objCmd.CommandText = "PR_Contact_SelectAllUserID";
+            objCmd.CommandText = "[PR_Contact_SelectAllByPK_UserID]";
 
             //objCmd.ExecuteNonQuery(); //Insert/Update/Delete
             //objCmd.ExecuteReader(); //Select
@@ -57,9 +59,12 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
                 objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
 
             SqlDataReader objSDR = objCmd.ExecuteReader();
-            gvContact.DataSource = objSDR;
-            gvContact.DataBind();
-
+            if(objSDR.HasRows)
+            {
+                gvContact.DataSource = objSDR;
+                gvContact.DataBind();
+            }
+            
             if (objConn.State == ConnectionState.Open) //Close the Connection
                 objConn.Close();
             #endregion Set Connection & Command Object
@@ -67,7 +72,7 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            lblMessage.Text = ex.Message;
+            lblMessage.Text = ex.Message +ex;
         }
         finally
         {
@@ -129,10 +134,12 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
             if (file.Exists)
             {
                 file.Delete();
+                lblMessage.ForeColor = Color.Green;
                 lblMessage.Text = "Image Deleted Successfully!";
             }
             else
             {
+                lblMessage.ForeColor = Color.Red;
                 lblMessage.Text = "Image dosen't upload!";
             }
 
@@ -164,8 +171,10 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
             if (objConn.State != ConnectionState.Open)
                 objConn.Open();
 
+            DeleteContactCategory(ContactID);
+
             #region Delete Image
-            FileInfo file = new FileInfo(Server.MapPath("~/Content/UserPhoto/" + ID.ToString() + ".jpg"));
+            FileInfo file = new FileInfo(Server.MapPath("~/Content/UserPhoto/" + ContactID.ToString() + ".jpg"));
 
             if (file.Exists)
             {
@@ -188,6 +197,9 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
 
             objCmd.ExecuteNonQuery();
 
+            lblMessage.ForeColor = Color.Green;
+            lblMessage.Text = "Data Delete Successfully!";
+
             if (objConn.State == ConnectionState.Open)
                 objConn.Close();
 
@@ -206,5 +218,40 @@ public partial class AdminPanel_Contact_ContactList : System.Web.UI.Page
         }
     }
     #endregion DeleteContact Record
+
+    #region DeleteContactCategory
+    public void DeleteContactCategory(SqlInt32 ContactID)
+    {
+        #region Set Connection
+        SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);
+        #endregion Set Connection
+
+        try
+        {
+            if (objConn.State != ConnectionState.Open)
+                objConn.Open();
+
+            SqlCommand objCmd = objConn.CreateCommand();
+            objCmd.CommandType = CommandType.StoredProcedure;
+            objCmd.CommandText = "PR_ContactWiseContactCategory_DeleteByContactID";
+            objCmd.Parameters.AddWithValue("@ContactId", ContactID);
+            if (Session["UserID"] != null)
+                objCmd.Parameters.AddWithValue("@UserID", Convert.ToInt32(Session["UserID"]));
+            objCmd.ExecuteNonQuery();
+
+            if (objConn.State == ConnectionState.Open)
+                objConn.Close();
+        }
+        catch(Exception ex)
+        {
+            lblMessage.Text = ex.Message + ex;
+        }
+        finally
+        {
+            if (objConn.State == ConnectionState.Open)
+                objConn.Close();
+        }
+    }
+    #endregion DeleteContactCategory
 
 }

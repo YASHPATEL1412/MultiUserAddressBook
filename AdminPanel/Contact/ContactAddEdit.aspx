@@ -5,9 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMainContent" runat="Server">
     <div class="row hight">
         <div class="col-md-12">
-            <h3><strong>Conatact Add Edit Page</strong></h3>
+            <h3><strong><asp:Label runat="server" ID="lblAddEdit"/></strong></h3>
         </div>
-    </div>
+    </div><hr class="hrr" />
     <div class="row">
         <div class="col-md-12" style="text-align: center">
             <asp:Label runat="server" ID="lblMessage" EnableViewState="False" Font-Bold="True" Font-Size="Large" ForeColor="Red" />
@@ -49,7 +49,7 @@
                 <h4><span class="required">*</span>ContactCategory:</h4>
             </div>
             <div class="col-md-10">
-                <asp:CheckBoxList runat="server" ID="cblContactCategoryID" RepeatDirection="Horizontal" Font-Size="Large" TextAlign="Left" />
+                <asp:CheckBoxList runat="server" ID="cblContactCategoryID" RepeatDirection="Horizontal" Font-Size="Large" CellPadding="3" />
                 <%--<asp:DropDownList runat="server" ID="ddlContactCategoryID" />--%>
             </div>
         </div>

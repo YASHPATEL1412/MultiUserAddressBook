@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,7 @@ public partial class AdminPanel_Country_CountryList : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             FillGridView();
+            lblMessage.Text = "";
         }
     }
     #endregion Load Evant
@@ -117,6 +119,9 @@ public partial class AdminPanel_Country_CountryList : System.Web.UI.Page
                 objCmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
 
             objCmd.ExecuteNonQuery();
+
+            lblMessage.ForeColor = Color.Green;
+            lblMessage.Text = "Data Delete Successfully!";
 
             if (objConn.State == ConnectionState.Open)
                 objConn.Close();

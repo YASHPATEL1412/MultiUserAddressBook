@@ -16,16 +16,28 @@ public partial class AdminPanel_Country_CountryAddEdit : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            if (Request.QueryString["CountryID"] != null)
+            /* | CountryID = " + EncryptDecrypt.Base64Decode(RouteData.Values["CountryID"].ToString().Trim()"*/
+            if (RouteData.Values["CountryID"] != null)
             {
-                lblMessage.Text = "Edit Mode | CountryID = " + Request.QueryString["CountryID"].ToString();
+                lblAddEdit.Text = "Edit Country";
 
-                FillControls(Convert.ToInt32(Request.QueryString["CountryID"]));
+                FillControls(Convert.ToInt32(EncryptDecrypt.Base64Decode(RouteData.Values["CountryID"].ToString().Trim())));
+            }
+            else
+            {
+                lblAddEdit.Text = "Add Country";
+            }
+
+            /*if (RouteData.Values["CountryID"] != null)
+            {
+                lblMessage.Text = "Edit Mode | CountryID = " + EncryptDecrypt.Base64Decode(RouteData.Values["CountryID"].ToString().Trim();
+
+                FillControls(Convert.ToInt32(RouteData.Values["CountryID"]));
             }
             else
             {
                 lblMessage.Text = "Add Mode";
-            }
+            }*/
         }
     }
     #endregion Load Event
@@ -86,14 +98,14 @@ public partial class AdminPanel_Country_CountryAddEdit : System.Web.UI.Page
 
             #endregion Set Connection & Command Object
 
-            if (Request.QueryString["CountryID"] != null)
+            if (Page.RouteData.Values["CountryID"] != null)
             {
                 #region Update Record
                 //Edit Mode
-                objCmd.Parameters.AddWithValue("@CountryID", Request.QueryString["CountryID"].ToString().Trim());
+                objCmd.Parameters.AddWithValue("@CountryID", EncryptDecrypt.Base64Decode(RouteData.Values["CountryID"].ToString().Trim()));
                 objCmd.CommandText = "[dbo].[PR_Country_UpdateByPK]";
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/AdminPanel/Country/CountryList.aspx", true);
+                Response.Redirect("~/AdminPanel/Country/List", true);
                 #endregion Update Record
             }
             else
@@ -105,6 +117,7 @@ public partial class AdminPanel_Country_CountryAddEdit : System.Web.UI.Page
                 txtCountryName.Text = "";
                 txtCountryCode.Text = "";
                 txtCountryName.Focus();
+                lblMessage.ForeColor = System.Drawing.Color.Green;
                 lblMessage.Text = "Data Inserted Successfully";
                 #endregion Insert Record
             }
@@ -127,7 +140,7 @@ public partial class AdminPanel_Country_CountryAddEdit : System.Web.UI.Page
     #region Button : Cancel
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/AdminPanel/Country/CountryList.aspx", true);
+        Response.Redirect("~/AdminPanel/Country/List", true);
     }
     #endregion Button : Cancel
 

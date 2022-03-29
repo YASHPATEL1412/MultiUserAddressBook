@@ -97,6 +97,7 @@ public partial class AdminPanel_Register : System.Web.UI.Page
             objCmd.ExecuteNonQuery();
             #endregion Set Connection & Command Object
 
+            lblMessage.ForeColor = System.Drawing.Color.Green;
             lblMessage.Text = strUserName.ToString()  + ": Register successfully";
 
             #region Clear Controls

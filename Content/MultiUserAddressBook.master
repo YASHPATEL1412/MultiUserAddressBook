@@ -49,16 +49,16 @@
                 <asp:Label runat="server" ID="lblUserName" CssClass="lbl" />
                 <ul style="font-size: large; vertical-align: middle;">
                     <li>
-                        <asp:HyperLink runat="server" ID="hlContact" Text="Contact" NavigateUrl="~/AdminPanel/Contact/ContactList.aspx" /></li>
+                        <asp:HyperLink runat="server" ID="hlContact" Text="Contact" NavigateUrl="~/AdminPanel/Contact/List" /></li>
                     <li>
-                        <asp:HyperLink runat="server" ID="hlContactCategory" Text="Contact Category" NavigateUrl="~/AdminPanel/ContactCategory/ContactCategoryList.aspx" /></li>
+                        <asp:HyperLink runat="server" ID="hlContactCategory" Text="Contact Category" NavigateUrl="~/AdminPanel/ContactCategory/List" /></li>
                     <li>
-                        <asp:HyperLink runat="server" ID="hlCity" Text="City" NavigateUrl="~/AdminPanel/City/CityList.aspx" /></li>
+                        <asp:HyperLink runat="server" ID="hlCity" Text="City" NavigateUrl="~/AdminPanel/City/List" /></li>
                     <li>
-                        <asp:HyperLink runat="server" ID="hlState" Text="State" NavigateUrl="~/AdminPanel/State/StateList.aspx" /></li>
+                        <asp:HyperLink runat="server" ID="hlState" Text="State" NavigateUrl="~/AdminPanel/State/List" /></li>
                     <li>
-                        <asp:HyperLink runat="server" ID="hlCountry" Text="Country" NavigateUrl="~/AdminPanel/Country/CountryList.aspx" /></li>
-                <asp:Button runat="server" ID="btnSignOut" Text="Sign Out" CssClass="btn btn-dark" OnClick="btnSignOut_Click" />
+                        <asp:HyperLink runat="server" ID="hlCountry" Text="Country" NavigateUrl="~/AdminPanel/Country/List" /></li>
+                <asp:Button runat="server" ID="btnSignOut" Text="Log Out" CssClass="btn btn-bg-white btnSignout" OnClick="btnSignOut_Click" />
                 </ul>
             </div>                
         </div>

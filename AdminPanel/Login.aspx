@@ -44,7 +44,7 @@ background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%
                 <asp:RequiredFieldValidator ID="rfvPasswordLogin" runat="server" ControlToValidate="txtPasswordLogin" Display="Dynamic" ErrorMessage="Enter Password" Font-Size="Medium" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
                 <asp:Button runat="server" ID="btnLogin" Text="Sign in" class="fadeIn third" OnClick="btnLogin_Click" /><br />
-                <asp:Label runat="server" ID="lblMessage" EnableViewState="false" />
+                <asp:Label runat="server" ID="lblMessage" EnableViewState="False" Font-Bold="True" Font-Size="Large" ForeColor="Red" />
                 <!-- Remind Passowrd -->
                 <%--<div id="formFooter">
                     <a class="underlineHover" href="#">Forgot Password?</a>
@@ -52,7 +52,7 @@ background: linear-gradient(180deg, rgba(16,61,156,1) 0%, rgba(86,186,237,1) 76%
 
                 <div id="formFooter">
                     <a>
-                        <h4>Existing User? Sign in to Address Book </h4>
+                        <h4>Existing User! Sign in to Address Book </h4>
                     </a>
                 </div>
 

@@ -16,15 +16,15 @@ public partial class AdminPanel_ContactCategory_ContactCategoryAddEdit : System.
     {
         if (!Page.IsPostBack)
         {
-            if (Request.QueryString["ContactCategoryID"] != null)
+            if (RouteData.Values["ContactCategoryID"] != null)
             {
-                lblMessage.Text = "Edit Mode | ContactCategoryID = " + Request.QueryString["ContactCategoryID"].ToString();
+                lblAddEdit.Text = "Edit ContactCategory";
 
-                FillControls(Convert.ToInt32(Request.QueryString["ContactCategoryID"]));
+                FillControls(Convert.ToInt32(EncryptDecrypt.Base64Decode(RouteData.Values["ContactCategoryID"].ToString().Trim())));
             }
             else
             {
-                lblMessage.Text = "Add Mode";
+                lblAddEdit.Text = "Add ContactCategory";
             }
         }
     }
@@ -76,11 +76,11 @@ public partial class AdminPanel_ContactCategory_ContactCategoryAddEdit : System.
 
             #endregion Set Connection & Command Object
 
-            if (Request.QueryString["ContactCategoryID"] != null)
+            if (RouteData.Values["ContactCategoryID"] != null)
             {
                 #region Update Record
                 //Edit Mode
-                objCmd.Parameters.AddWithValue("@ContactCategoryID", Request.QueryString["ContactCategoryID"].ToString().Trim());
+                objCmd.Parameters.AddWithValue("@ContactCategoryID", (EncryptDecrypt.Base64Decode(RouteData.Values["ContactCategoryID"].ToString().Trim())));
                 objCmd.CommandText = "[dbo].[PR_ContactCategory_UpdateByPK]";
                 objCmd.ExecuteNonQuery();
                 Response.Redirect("~/AdminPanel/ContactCategory/ContactCategoryList.aspx", true);
@@ -92,6 +92,7 @@ public partial class AdminPanel_ContactCategory_ContactCategoryAddEdit : System.
                 //Add Mode
                 objCmd.CommandText = "[dbo].[PR_ContactCategory_Insert]";
                 objCmd.ExecuteNonQuery();
+                lblMessage.ForeColor = System.Drawing.Color.Green;
                 lblMessage.Text = "Data Inserted Successfully";
                 txtContactCategoryName.Text = "";
                 txtContactCategoryName.Focus();
@@ -115,7 +116,7 @@ public partial class AdminPanel_ContactCategory_ContactCategoryAddEdit : System.
     #region Button : Cancel
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/AdminPanel/ContactCategory/ContactCategoryList.aspx", true);
+        Response.Redirect("~/AdminPanel/ContactCategory/List", true);
     }
     #endregion Button : Cancel
 
@@ -156,7 +157,7 @@ public partial class AdminPanel_ContactCategory_ContactCategoryAddEdit : System.
             }
             else
             {
-                lblMessage.Text = "No Data Available for the ContactCategoryID = " + ContactCategoryID.ToString();
+                lblMessage.Text = "No Data Available";
             }
             #endregion Read the value and set the controls
         }
