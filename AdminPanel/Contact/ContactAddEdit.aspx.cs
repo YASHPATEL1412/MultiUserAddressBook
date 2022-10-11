@@ -221,7 +221,7 @@ public partial class AdminPanel_Contact_ContactAddEdit : System.Web.UI.Page
                 DeleteContactCategory(Convert.ToInt32(EncryptDecrypt.Base64Decode(RouteData.Values["ContactID"].ToString())));
                 AddContactCategory(Convert.ToInt32(EncryptDecrypt.Base64Decode(RouteData.Values["ContactID"].ToString())));
 
-                Response.Redirect("~/AdminPanel/Contact/ContactList.aspx", true);
+                Response.Redirect("~/AdminPanel/Contact/List", true);
                 #endregion Update Record
             }
             else

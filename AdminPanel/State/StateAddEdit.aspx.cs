@@ -98,7 +98,7 @@ public partial class AdminPanel_State_StateAddEdit : System.Web.UI.Page
                 objCmd.Parameters.AddWithValue("@StateID", (EncryptDecrypt.Base64Decode(RouteData.Values["StateID"].ToString().Trim())));
                 objCmd.CommandText = "[dbo].[PR_State_UpdateByPK]";
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/AdminPanel/State/StateList.aspx", true);
+                Response.Redirect("~/AdminPanel/State/List", true);
                 #endregion Update Record
             }
             else

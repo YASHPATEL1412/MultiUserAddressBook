@@ -83,7 +83,7 @@ public partial class AdminPanel_ContactCategory_ContactCategoryAddEdit : System.
                 objCmd.Parameters.AddWithValue("@ContactCategoryID", (EncryptDecrypt.Base64Decode(RouteData.Values["ContactCategoryID"].ToString().Trim())));
                 objCmd.CommandText = "[dbo].[PR_ContactCategory_UpdateByPK]";
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/AdminPanel/ContactCategory/ContactCategoryList.aspx", true);
+                Response.Redirect("~/AdminPanel/ContactCategory/List", true);
                 #endregion Update Record
             }
             else

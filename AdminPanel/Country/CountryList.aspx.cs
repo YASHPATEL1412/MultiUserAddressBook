@@ -98,7 +98,7 @@ public partial class AdminPanel_Country_CountryList : System.Web.UI.Page
     }
     #endregion gvCountry : RowCommand
 
-      #region DeleteCountry Record
+    #region DeleteCountry Record
     private void DeleteCountry(SqlInt32 CountryID)
     {
         SqlConnection objConn = new SqlConnection(ConfigurationManager.ConnectionStrings["MultiUserAddressBookConnectionString"].ConnectionString);

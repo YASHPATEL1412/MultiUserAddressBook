@@ -82,9 +82,7 @@ public partial class AdminPanel_City_CityAddEdit : System.Web.UI.Page
             if (txtPinCode.Text.Trim() != "")
                 strPinCode = txtPinCode.Text.Trim();
 
-            if (objConn.State != ConnectionState.Open)
-                objConn.Open();
-            #endregion Gather 
+            #endregion Gather Informaction
 
             #region Set Connection & Command Object
             if (objConn.State != ConnectionState.Open)
@@ -108,7 +106,9 @@ public partial class AdminPanel_City_CityAddEdit : System.Web.UI.Page
                 objCmd.Parameters.AddWithValue("CityID", (EncryptDecrypt.Base64Decode(RouteData.Values["CityID"].ToString().Trim())));
                 objCmd.CommandText = "[dbo].[PR_City_UpdateByPK]";
                 objCmd.ExecuteNonQuery();
-                Response.Redirect("~/AdminPanel/City/CityList.aspx", true);
+                lblMessage.Text = "Updated Successfully";
+
+                Response.Redirect("~/AdminPanel/City/List", true);
                 #endregion Update Record
             }
             else
@@ -117,11 +117,13 @@ public partial class AdminPanel_City_CityAddEdit : System.Web.UI.Page
                 //Add Mode
                 objCmd.CommandText = "[dbo].[PR_City_Insert]";
                 objCmd.ExecuteNonQuery();
+
                 txtCityName.Text = "";
                 txtSTDCode.Text = "";
                 txtPinCode.Text = "";
                 ddlStateID.SelectedIndex = 0;
                 ddlStateID.Focus();
+
                 lblMessage.ForeColor = System.Drawing.Color.Green;
                 lblMessage.Text = "Data Inserted Successfully";
                 #endregion Insert Record
